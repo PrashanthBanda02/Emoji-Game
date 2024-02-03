@@ -1,7 +1,10 @@
+// Inside NavBar component (src/components/NavBar/index.js)
+
 import './index.css'
 
 const NavBar = props => {
   const {score, topScore} = props
+
   return (
     <div className="navbar-container">
       <div className="logo-name-container">

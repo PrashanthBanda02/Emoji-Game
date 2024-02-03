@@ -1,20 +1,22 @@
+// Inside EmojiCardItem component (src/components/EmojiCardItem/index.js)
+
 import './index.css'
 
-const EmojiCard = props => {
-  const {emojisList} = props
+const EmojiCardItem = props => {
+  const {eachEmoji, EmojiClicked} = props
+  const {id, emojiName, emojiUrl} = eachEmoji
+
+  const handleEmojiClick = () => {
+    EmojiClicked(id)
+  }
+
   return (
-    <ul className="emojis-container">
-      {emojisList.map(eachEmoji => (
-        <li key={eachEmoji.id} className="each-Emoji-container">
-          <img
-            className="emoji-img"
-            src={eachEmoji.emojiUrl}
-            alt={eachEmoji.emojiName}
-          />
-        </li>
-      ))}
-    </ul>
+    <li key={id} className="each-emoji-container">
+      <button type="button" onClick={handleEmojiClick}>
+        <img className="emoji-img" src={emojiUrl} alt={emojiName} />
+      </button>
+    </li>
   )
 }
 
-export default EmojiCard
+export default EmojiCardItem
