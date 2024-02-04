@@ -1,32 +1,60 @@
-.navbar-container {
-  height: 10vh;
-  width: 100vw;
-  background-color: #9796f0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.logo-name-container {
-  margin-left: 30px;
+.nav-bar-container {
   display: flex;
   justify-content: center;
+  background-color: #ffffff33;
+  padding: 8px;
+}
+
+.title-with-score-container {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 80%;
+  max-width: 1000px;
+}
+
+.logo-and-title-container {
+  display: flex;
   align-items: center;
 }
 
-.app-logo {
-  height: 30px;
-  width: 30px;
+.emoji-logo {
+  width: 24px;
 }
 
-.app-name {
-  color: white;
-  font-size: 30px;
+@media screen and (min-width: 768px) {
+  .emoji-logo {
+    width: 48px;
+  }
+}
+
+.title {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
   font-weight: bold;
 }
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
 .scores-container {
-  width: 20vw;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  color: white;
+}
+
+.score {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .score {
+    font-size: 24px;
+    margin-left: 32px;
+  }
 }

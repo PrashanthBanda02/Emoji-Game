@@ -1,33 +1,33 @@
-import NavBar from '../NavBar' // Update the import path as needed
 import './index.css'
 
-const WinOrLoseCard = ({score, topScore, winOrLose, playAgain}) => (
-  <div className="WinOrLoseCard-container">
-    <NavBar score={score} topScore={topScore} />
-    <div className={winOrLose === 'win' ? 'win-card' : 'lose-card'}>
-      <h1 className="win-card-heading">
-        {winOrLose === 'win' ? 'You Won' : 'You Lose'}
-      </h1>
-      {winOrLose === 'win' && (
-        <>
-          <p className="score">{score}/12</p>
-          <p className="best-score">Best Score</p>
-        </>
-      )}
-      <button type="button" className="play-again-btn" onClick={playAgain}>
-        Play Again
-      </button>
-      <img
-        className="win-or-lose-img"
-        alt="win or lose"
-        src={
-          winOrLose === 'win'
-            ? 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
-            : 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
-        }
-      />
+const LOSE_IMAGE = 'https://assets.ccbp.in/frontend/react-js/lose-game-img.png'
+const WON_IMAGE = 'https://assets.ccbp.in/frontend/react-js/won-game-img.png'
+
+const WinOrLoseCard = props => {
+  const {isWon, onClickPlayAgain, score} = props
+  const imageUrl = isWon ? WON_IMAGE : LOSE_IMAGE
+  const gameStatus = isWon ? 'You Won' : 'You Lose'
+  const scoreLabel = isWon ? 'Best Score' : 'Score'
+
+  return (
+    <div className="win-or-lose-card">
+      <div className="details-section">
+        <h1 className="game-status">{gameStatus}</h1>
+        <p className="current-score-label">{scoreLabel}</p>
+        <p className="current-score-value">{score}/12</p>
+        <button
+          type="button"
+          className="play-again-button"
+          onClick={onClickPlayAgain}
+        >
+          Play Again
+        </button>
+      </div>
+      <div className="image-section">
+        <img className="win-or-lose-image" src={imageUrl} alt="win or lose" />
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default WinOrLoseCard
